@@ -1,0 +1,82 @@
+- name: make default shit
+  hosts: all
+
+  tasks:
+  - name: set hostname
+    hostname:
+      name: fedest
+    become: yes
+  - name: enable dnf fastest-mirror
+    lineinfile:
+      path: /etc/dnf/dnf.conf
+      line: fastestmirror=True
+    become: yes
+
+  - name: Upgrade all packages
+    dnf:
+      name: "*"
+      state: latest
+    become: yes
+
+  - name: rpm-fusion
+    dnf:
+      name: 
+        - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-{{ansible_distribution_major_version}}.noarch.rpm 
+        - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ansible_distribution_major_version}}.noarch.rpm
+      state: present
+      disable_gpg_check: yes
+    become: yes
+  
+  - name: update multimedia groups
+    dnf:
+       name: 
+         - '@multimedia'
+         - '@sound and video'
+       exclude: PackageKit-gstreamer-plugin
+       install_weak_deps: no
+    become: yes
+
+  - name: install shit
+    dnf:
+      name:
+        - fedora-workstation-repositories
+        - tmux
+        - ibm-plex-sans-fonts
+        - ibm-plex-serif-fonts
+        - ibm-plex-mono-fonts
+        - NetworkManager-l2tp-gnome
+        - NetworkManager-libreswan-gnome
+        - '@virtualization'
+        - celluloid
+        - evolution
+        - vim
+        - restic
+        - grubby
+        - toolbox
+        - dconf-editor
+        - gnome-tweaks
+        - rsync
+        - python3-psutil
+      state: present
+    become: yes
+
+  - name: use grubby to set kernel parameters
+    shell: grubby --update-kernel=ALL --args="mitigations=off nowatchdog"
+    become: yes
+
+  - name: remove shit
+    dnf:
+      name:
+        - gnome-software
+        - abrt
+      state: absent
+    become: yes
+
+  - name: flatpak shit
+    include: flatpak.yml
+
+  - name: alacritty
+    include: alacritty.yml
+
+  - name: gsettings
+    include: gsettings.yml

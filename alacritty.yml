@@ -1,0 +1,17 @@
+- name: install alacritty
+  dnf:
+    name: alacritty
+    state: present
+  become: yes
+
+- name: create conf dir
+  file:
+    path: /home/me/.config/alacritty
+    state: directory
+
+- name: copy config
+  copy:
+    src: configs/alacritty.yml
+    dest: /home/me/.config/alacritty/alacritty.yml
+    mode: '0644'
+    

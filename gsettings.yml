@@ -1,0 +1,156 @@
+- name: keyboard layouts
+  community.general.dconf:
+    key: '/org/gnome/desktop/input-sources/per-window'
+    value: 'true'
+    state: present
+
+- name: keyboard layouts
+  community.general.dconf:
+    key: '/org/gnome/desktop/input-sources/sources'
+    value: "[('xkb', 'us'), ('xkb', 'ru')]"
+    state: present
+
+- name: keyboard layouts
+  community.general.dconf:
+    key: '/org/gnome/desktop/input-sources/mru-sources'
+    value: "[('xkb', 'us'), ('xkb', 'ru')]"
+    state: present
+
+- name: keyboard layouts
+  community.general.dconf:
+    key: '/org/gnome/desktop/input-sources/xkb-options'
+    value: "['lv3:ralt_switch', 'grp:caps_toggle,grp:switch,grp_led:caps']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/close'
+    value: "['<Super>q']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/cycle-windows'
+    value: "['<Alt>Tab']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/cycle-windows-backward'
+    value: "['<Shift><Alt>Tab']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-center'
+    value: "['<Super>c']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-corner-ne'
+    value: "['<Super>Page_Down']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-corner-nw'
+    value: "['<Super>Page_Up']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-corner-se'
+    value: "['<Super>Right']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-corner-se'
+    value: "['<Super>Left']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-workspace-down'
+    value: "['<Shift><Super>s']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/move-to-workspace-up'
+    value: "['<Shift><Super>w']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-applications'
+    value: "['<Super>Tab']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-applications-backward'
+    value: "['<Shift><Super>Tab']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-to-workspace-down'
+    value: "['<Super>s']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-to-workspace-up'
+    value: "['<Super>w']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-windows'
+    value: "@as []"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/switch-windows-backward'
+    value: "@as []"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/toggle-fullscreen'
+    value: "['<Super>f']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/toggle-maximized'
+    value: "['<Super>e']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/toggle-on-all-workspaces'
+    value: "['<Super>y']"
+    state: present
+
+- name: keyboard shortcuts
+  community.general.dconf:
+    key: '/org/gnome/desktop/wm/keybindings/unmaximize'
+    value: "['<Super>x']"
+    state: present
+
+# doesn't work
+# - name: mutter keybindings
+#   community.general.dconf:
+#     key: '/org/gnome/mutter/keybindings/toggle-tiled-left'
+#     value: "['<Super>a']"
+#     state: present
+
+# - name: mutter keybindings
+#   community.general.dconf:
+#     key: '/org/gnome/mutter/keybindings/toggle-tiled-right'
+#     value: "['<Super>d']"
+#     state: present

@@ -1,0 +1,21 @@
+- name: Add the flathub flatpak repository remote to the user installation
+  community.general.flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
+- name: install telegram
+  community.general.flatpak:
+    name: org.telegram
+    state: present
+    method: user
+- name: install sublime text
+  community.general.flatpak:
+    name: com.sublimetext.three
+    state: present
+    method: user
+- name: install flatseal
+  community.general.flatpak:
+    name: com.github.tchx84.Flatseal
+    state: present
+    method: user
